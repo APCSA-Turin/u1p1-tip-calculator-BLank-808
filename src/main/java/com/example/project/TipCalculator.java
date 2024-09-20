@@ -5,8 +5,8 @@ public class TipCalculator {
     public static String calculateTip(int people, int percent, double cost) { //You must use these  variable in your calculations
         //DO NOT DELETE ANY OF THE CODE BELOW      
         StringBuilder result = new StringBuilder();
-        double tip=(int)(((cost*(percent/100.0))*100.0)+.5)/100.0;
-        double costAP= ((tip*100 + cost*100)/100);
+        double tip=(int)(((cost*(percent/100.0))*100.0)+.5)/100.0;/*By using int casting removing decimals and then dividing by 100 it effectivly rounds to the nearest hundreth */
+        double costAP= ((tip*100 + cost*100)/100); /*For some reason when adding them as doubles it results in a number extreamly close but with more than two decimal points thus the coversion back and forth is needed */
                        
         result.append("-------------------------------\n");
         result.append("Total bill before tip: "+"$"+ cost +"\n"); //concatenate to this string. DO NOT ERASE AND REWRITE
@@ -15,7 +15,7 @@ public class TipCalculator {
         result.append("Total Bill with tip: "+"$"+ costAP+ "\n");
         result.append("Per person cost before tip: "+"$"+((int)(((cost/people)*100.0)+.5)/100.0)+ "\n");
         result.append("Tip per person: "+"$"+((int)(((tip/people)*100.0)+.5)/100.0)+"\n");
-        result.append("Total cost per person: "+"$"+ ((int)(((costAP/people)*100.0)+.5)/100.0)+"\n");
+        result.append("Total cost per person: "+"$"+ ((int)(((costAP/people)*100.0))/100.0)+"\n");
         result.append("-------------------------------\n");
 
 
